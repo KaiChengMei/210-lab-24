@@ -115,8 +115,10 @@ void add_goat(set<Goat> &trip, string names[], string colors[]) {
     int age = rand() % (MAX_AGE+1);
 
     Goat newGoat (name, age, color);
-    trip.push_back(newGoat);
-    cout << "goat:" << name << "(" << age << "," << color << ")" << " successfully added" << endl;
+    auto a = trip.insert(newGoat);
+    if (a.second) {
+        cout << "goat:" << name << "(" << age << "," << color << ")" << " successfully added" << endl;
+    }
 }
 
 void display_trip(set<Goat> trip) {
